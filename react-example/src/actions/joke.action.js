@@ -1,0 +1,15 @@
+export const JOKE_ACTIONS = {
+  FETCH_ALL: 'JOKES_FETCH_ALL',
+  FETCH_SUCCEEDED: 'JOKE_FETCH_SUCCEEDED',
+  FETCH_FAILED: 'JOKE_FAILED',
+  FETCH_RANDOM: 'FETCH_RANDOM',
+  JOKE_FETCH_RANDOM_SUCCEEDED: 'FETCH_RANDOM_SUCCEEDED'
+}
+
+export const findAll = () => ({
+  type: JOKE_ACTIONS.FETCH_ALL
+});
+
+export const findJoke = () => ({
+  type: JOKE_ACTIONS.FETCH_RANDOM
+});

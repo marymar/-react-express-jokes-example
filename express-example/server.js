@@ -3,9 +3,11 @@ const express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Foo = require('./api/models/foo.model'),
+  Jokes = require('./api/models/jokes.model'),
   bodyParser = require('body-parser'),
-  fooRoutes = require('./api/routes/foo.routes');
-  barRoutes = require('./api/routes/bar.routes');
+  fooRoutes = require('./api/routes/foo.routes'),
+  jokeRoutes = require('./api/routes/joke.routes');
+
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -30,7 +32,7 @@ app.use(bodyParser.json());
 
 //register the routes
 fooRoutes(app);
-barRoutes(app);
+jokeRoutes(app);
 
 // nothing matched?
 app.use(function (req, res, next) {

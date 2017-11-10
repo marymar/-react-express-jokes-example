@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import FooList from './components/foo/FooList';
+import RandomJoke from './components/joke/RandomJoke';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Web UI example</h1>
+          <h1 className="App-title">Chuck Norris</h1>
         </header>
-        <FooList />
+        <RandomJoke />
       </div>
     );
   }
 }
+
 
 export default App;

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import fooReducer from './foo.reducers';
+import jokesReducer from './jokes.reducer';
 
 const rootReducer = combineReducers({
-  foos: fooReducer
+  jokesState: jokesReducer
 });
 
 export default rootReducer;

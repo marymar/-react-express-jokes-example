@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "express": "^4.16.2",
+    "http": "0.0.0",
+    "http-request": "^0.7.0",
     "mongoose": "^4.12.6"
   }
 }

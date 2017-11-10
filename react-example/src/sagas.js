@@ -1,17 +1,28 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
-import FooService from './api/foo.service'
+import JokeService from './api/jokes.service'
+import {JOKE_ACTIONS} from './actions/joke.action'
 
-function* fetchFoos(action) {
+function* fetchJokes(action) {
   try {
-    const foos = yield call(FooService.fetchFoos);
-    yield put({ type: "FOO_FETCH_SUCCEEDED", foos });
+    const jokes = yield call(JokeService.fetchJokes);
+    yield put({ type: "JOKE_FETCH_SUCCEEDED", jokes });
   } catch (e) {
-    yield put({ type: "FOO_FAILED", message: e.message });
+    yield put({ type: "JOKE_FAILED", message: e.message });
+  }
+}
+
+function* fetchRandomJoke(action) {
+  try {
+    const joke = yield call(JokeService.fetchRandomJoke);
+    yield put({ type: JOKE_ACTIONS.JOKE_FETCH_RANDOM_SUCCEEDED, joke });
+  } catch (e) {
+    yield put({ type: "JOKE_FAILED", message: e.message });
   }
 }
 
 function* watchSagas() {
-  yield takeEvery("FOO_FETCH_ALL", fetchFoos);
+  yield takeEvery("JOKES_FETCH_ALL", fetchJokes);
+  yield takeEvery(JOKE_ACTIONS.FETCH_RANDOM, fetchRandomJoke);
 }
 
 export default watchSagas;
