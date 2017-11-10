@@ -1,6 +1,6 @@
 const host = 'https://api.icndb.com';
 const url = `${host}/jokes`;
-const randomUrl = `${host}/jokes/random`;
+const randomUrl = `${host}/jokes/random?escape=javascript`;
 const http = require('http-request');
 
 const mongoose = require('mongoose');
