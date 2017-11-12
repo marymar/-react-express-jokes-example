@@ -1,5 +1,38 @@
 .joke {
-  font-size: 2em;
-  margin: 1em auto;
+  $badge-color: darken(#222, 1%);
+  $border-color: lighten($badge-color, 30%);
+  $size: 2rem;
+  $badge-size: $size * 5;
+
+  border: 1px solid $border-color;
+  border-radius: .5em;
+  font-size: $size;
+  margin: $size auto;
+  padding: $size / 2;
+  text-align: center;
   width: 80vw;
+
+  &::before {
+    background: 0 $badge-color;
+    border: 1px solid $border-color;
+    display: inline-block;
+    border-radius: 50%;
+    content: 'ˮ';
+    color: #25caa6;
+    font-size: $badge-size;
+    left: 0;
+    line-height: 1;
+    height: $badge-size / 2;
+    margin-left: $badge-size / 4;
+    margin-top: $badge-size / 4;
+    position: absolute;
+    top: 0;
+    width: $badge-size / 2;
+  }
+
+  &__text {
+    display: block;
+    margin: $size;
+  }
+
 }

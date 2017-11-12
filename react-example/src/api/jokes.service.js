@@ -8,7 +8,7 @@ class JokeService {
     try {
       const response = await fetch(url, { method: 'GET' });
       const res = await response.json();
-      return res.value;
+      return res;
     } catch (error) {
       console.log('Error occurred while fetching results', error);
     }
@@ -18,7 +18,7 @@ class JokeService {
     try {
       const response = await fetch(randomUrl, { method: 'GET' });
       const res = await response.json();
-      return res.value.joke;
+      return res.joke;
     }catch (error) {
       console.log('Error occurred while fetching results', error);
     }

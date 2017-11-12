@@ -11,9 +11,10 @@ class RandomJoke extends Component{
 
   render() {
     const { joke } = this.props;
-    console.log(this.props);
     return (
-      <div className="joke">{joke}</div>
+      <div className="joke">
+        <span className="joke__text">{joke}</span>
+      </div>
     );
   }
 }
@@ -23,7 +24,6 @@ RandomJoke.PropTypes = {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     joke: state.jokesState.joke
   }
