@@ -1,37 +1,32 @@
 const host = 'https://api.icndb.com';
 const url = `${host}/jokes`;
 const randomUrl = `${host}/jokes/random?escape=javascript`;
-const http = require('http-request');
+const request = require('request');
 
 const mongoose = require('mongoose');
 const Jokes = mongoose.model('Jokes');
 
 exports.randomJoke = async (req, res) => {
-    http.get(randomUrl, function (error, jokes) {
-        console.log(`error ${error}`);
-
-        if (error) {
-            //get from db
-            Jokes.find({}, (err, jokes) => {
-                if (err)
-                res.sendStatus(err);
-                console.log(`from db ${jokes}`);
-                const index = Math.ceil(Math.random() * jokes.length);
-
-                res.json({value: {joke: jokes[index].joke}});
-            });
+    request(randomUrl, { json: true }, async (err, response, body) => {
+        if (err) {
+            const randomJoke = await getOneFromDB();
+            res.json({ joke: randomJoke });
         } else {
-            const data = jokes.buffer.toString();
-
-            // save in db
-            var newJokes = new Jokes(JSON.parse(data).value);
-            newJokes.save((err, joke) => {
-                console.log(`joke saved ${joke}`);
-            });
-
-            res.write(data);
-            res.end();
+            saveToDB(body.value);
+            res.json({ joke: body.value.joke });
         }
     });
 };
+
+const getOneFromDB = async () => {
+    const jokes = await Jokes.find();
+    const index = Math.floor(Math.random() * jokes.length);
+    return jokes[index].joke;
+}
+
+const saveToDB = async (data) => {
+    const newJoke = new Jokes(data);
+    const joke = await newJoke.save();
+    return newJoke;
+}
 
