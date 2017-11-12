@@ -2,16 +2,13 @@ const express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Foo = require('./api/models/foo.model'),
   Jokes = require('./api/models/jokes.model'),
   bodyParser = require('body-parser'),
-  fooRoutes = require('./api/routes/foo.routes'),
   jokeRoutes = require('./api/routes/joke.routes');
-
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/foo', {
+mongoose.connect('mongodb://localhost/jokes', {
   useMongoClient: true
 });
 
@@ -31,7 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //register the routes
-fooRoutes(app);
 jokeRoutes(app);
 
 // nothing matched?
