@@ -1,8 +1,10 @@
 export const JOKE_ACTIONS = {
-  FETCH_ALL: 'JOKES_FETCH_ALL',
   FETCH_SUCCEEDED: 'JOKE_FETCH_SUCCEEDED',
   FETCH_FAILED: 'JOKE_FAILED',
   FETCH_RANDOM: 'FETCH_RANDOM',
+  SEARCH: 'SEARCH',
+  SEARCH_SUCCEEDED: 'SEARCH_SUCCEEDED',
+  SEARCH_FAILED: 'SEARCH_FAILED',
   JOKE_FETCH_RANDOM_SUCCEEDED: 'FETCH_RANDOM_SUCCEEDED'
 }
 
@@ -10,6 +12,10 @@ export const findAll = () => ({
   type: JOKE_ACTIONS.FETCH_ALL
 });
 
-export const findJoke = () => ({
+export const findRandom = () => ({
   type: JOKE_ACTIONS.FETCH_RANDOM
+});
+
+export const findJokes = () => ({
+  type: JOKE_ACTIONS.SEARCH
 });

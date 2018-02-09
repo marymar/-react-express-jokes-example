@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { findAll } from '../../actions/joke.action';
+import { findJokes } from '../../actions/joke.action';
 
-import Joke from '../joke/Joke';
+import './jokes-list.css';
 
 class ChuckNorrisList extends Component {
   componentDidMount() {
-    this.props.findAll();
+    this.props.findJokes();
   }
 
   render() {
     let index = 0;
     const { jokes } = this.props;
     return (
-      <ul>
+      <ul className="jokes-list">
         {
           jokes.map(joke => {
             return (
-              <li key={`joke-item_${++index}`}>
-                <Joke key={`joke_${++index}`} joke={joke.joke} />
+              <li className="jokes-list__item" key={`joke-item_${++index}`}>
+                {joke.joke}
               </li>
             )
           })
@@ -29,19 +28,14 @@ class ChuckNorrisList extends Component {
   }
 }
 
-
-ChuckNorrisList.propTypes = {
-  jokes: PropTypes.array.isRequired
-}
-
 const mapStateToProps = (state, ownProps) => {
   return {
-    jokes: state.jokes
+    jokes: state.jokesState.jokes
   };
 };
 
 const mapDispatchToProps = {
-  findAll: findAll
+  findJokes: findJokes
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChuckNorrisList);

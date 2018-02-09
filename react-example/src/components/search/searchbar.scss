@@ -1,0 +1,27 @@
+.searchbar {
+  $padding: 1em;
+  $field-color: #25caa6;
+
+  display: flex;
+  margin: 0 0 4em 0;
+  border-bottom: 1px solid $field-color;
+  border-top: 1px solid $field-color;
+
+  &__field {
+    background: lighten($field-color, 50%);
+    flex: 0 0 80%;
+    font-size: 1em;
+    padding: $padding;
+    border: 0;
+    outline: 0;
+  }
+
+  &__button {
+    border: 0;
+    flex: 1 1 20%;
+    font-size: 1em;
+    outline: 0;
+    padding: $padding;
+    background: 0 $field-color;
+  }
+}

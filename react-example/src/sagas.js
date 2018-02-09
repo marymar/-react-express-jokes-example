@@ -21,8 +21,8 @@ function* fetchRandomJoke(action) {
 }
 
 function* watchSagas() {
-  yield takeEvery("JOKES_FETCH_ALL", fetchJokes);
   yield takeEvery(JOKE_ACTIONS.FETCH_RANDOM, fetchRandomJoke);
+  yield takeEvery(JOKE_ACTIONS.SEARCH, fetchJokes);
 }
 
 export default watchSagas;

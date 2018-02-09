@@ -1,0 +1,19 @@
+.searchbar {
+  display: flex;
+  margin: 0 0 4em 0;
+  border-bottom: 1px solid #25caa6;
+  border-top: 1px solid #25caa6; }
+  .searchbar__field {
+    background: #f1fdfa;
+    flex: 0 0 80%;
+    font-size: 1em;
+    padding: 1em;
+    border: 0;
+    outline: 0; }
+  .searchbar__button {
+    border: 0;
+    flex: 1 1 20%;
+    font-size: 1em;
+    outline: 0;
+    padding: 1em;
+    background: 0 #25caa6; }

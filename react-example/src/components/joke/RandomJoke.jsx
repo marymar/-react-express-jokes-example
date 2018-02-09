@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { findJoke } from '../../actions/joke.action';
+import { findRandom } from '../../actions/joke.action';
 import './joke.css';
 
 class RandomJoke extends Component{
   componentDidMount() {
-    this.props.findJoke();
+    this.props.findRandom();
   }
 
   render() {
@@ -30,7 +30,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    findJoke: findJoke
+    findRandom: findRandom
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RandomJoke);

@@ -1,6 +1,6 @@
 const serviceUrl = 'http://localhost:3000';
 const url = `${serviceUrl}/jokes`;
-const randomUrl = `${serviceUrl}/jokes`;
+const randomUrl = `${serviceUrl}/jokes/random`;
 
 class JokeService {
 
