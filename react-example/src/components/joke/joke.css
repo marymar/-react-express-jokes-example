@@ -5,6 +5,7 @@
   font-size: 2rem;
   margin: 2rem auto;
   padding: 1rem;
+  position: relative;
   text-align: center;
   width: 80vw; }
   .joke::before {
@@ -18,8 +19,8 @@
     left: 0;
     line-height: 1;
     height: 5rem;
-    margin-left: 2.5rem;
-    margin-top: 2.5rem;
+    margin-left: -2rem;
+    margin-top: -2rem;
     position: absolute;
     top: 0;
     width: 5rem; }

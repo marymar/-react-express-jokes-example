@@ -15,7 +15,7 @@ class ChuckNorrisList extends Component {
     return (
       <ul className="jokes-list">
         {
-          jokes.map(joke => {
+          jokes.map && jokes.map(joke => {
             return (
               <li className="jokes-list__item" key={`joke-item_${++index}`}>
                 {joke.joke}

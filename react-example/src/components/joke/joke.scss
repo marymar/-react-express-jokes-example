@@ -9,6 +9,7 @@
   font-size: $size;
   margin: $size auto;
   padding: $size / 2;
+  position: relative;
   text-align: center;
   width: 80vw;
 
@@ -23,8 +24,8 @@
     left: 0;
     line-height: 1;
     height: $badge-size / 2;
-    margin-left: $badge-size / 4;
-    margin-top: $badge-size / 4;
+    margin-left: -$badge-size / 5;
+    margin-top: -$badge-size / 5;
     position: absolute;
     top: 0;
     width: $badge-size / 2;
